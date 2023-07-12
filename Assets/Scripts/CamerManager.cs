@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CamerManager : MonoBehaviour
+{
+    public Transform player;
+    public float xMin; //kamerayı sınırla
+    public float xMax;
+    public float yMin;
+    public float yMax;
+    void LateUpdate()
+    {
+        float x = Mathf.Clamp(player.position.x, xMin, xMax);
+        float y = Mathf.Clamp(player.position.y, yMin, yMax);
+        gameObject.transform.position = new Vector3(x, y, gameObject.transform.position.z);
+    }
+}
